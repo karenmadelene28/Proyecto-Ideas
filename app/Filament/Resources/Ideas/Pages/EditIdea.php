@@ -9,6 +9,16 @@ use Filament\Resources\Pages\EditRecord;
 class EditIdea extends EditRecord
 {
     protected static string $resource = IdeaResource::class;
+    
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
+
+    protected function getCreatedSavedTitle(): ?string
+    {
+        return 'Idea actualizada exitosamente';
+    }
 
     protected function getHeaderActions(): array
     {
