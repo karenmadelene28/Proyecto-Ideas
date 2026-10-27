@@ -19,7 +19,11 @@ class IdeaForm
                     ->label ('Titulo de la idea')
                     ->helperText('Escribe un titulo que sea ilustrativo y breve')
                     ->placeholder('Ej: Aplicación de comida')
-                    ->required(),
+                    ->unique()
+                    ->required()
+                    ->validationMessages([
+                        'unique' => 'Ya existe una idea registrada con ese titulo'
+                    ]),
                 Textarea::make('descripcion')
                     ->label('Describe tu idea')
                     ->helperText('Escribe a detalle en que consiste la idea del proyecto')

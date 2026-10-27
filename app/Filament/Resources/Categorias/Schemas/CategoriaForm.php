@@ -19,7 +19,11 @@ class CategoriaForm
                     ->helperText('Ejemplo: Ciberseguridad')
                     ->placeholder('Categoria')  //usado por ejemplo para establecer formato de fecha o telefono
                     //->disable(1 == 1)     -> deshabilitar un campo
-                    ->required(), //campo obligatorio
+                    ->required() //campo obligatorio
+                    ->unique()
+                    ->validationMessages([
+                    'unique' => 'Ya existe una categoria registrada con ese titulo'
+                    ]),
                 Textarea::make('descripcion')
                     ->label('Descripción')
                     ->helperText('Ejemplo: Ideas relacionados con la proteccion de datos')
